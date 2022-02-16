@@ -116,9 +116,9 @@ export class RegisterForm extends React.Component {
                     <ChakraInput
                       name="password"
                       label="Password"
-                      type="password"
                       mt={5}
                       isRequired
+                      inputProps={{ type: "password" }}
                     />
                     <ChakraInput
                       name="firstName"
@@ -135,9 +135,9 @@ export class RegisterForm extends React.Component {
                     <ChakraSelect
                       name="country"
                       label="Country"
-                      placeholder="Select country"
                       mt={5}
                       isRequired
+                      selectProps={{ placeholder: "Select country" }}
                     />
                     <ChakraCheckbox
                       name="newsletterSignUp"
