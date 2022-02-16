@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Flex, Heading } from "@chakra-ui/react";
+import { RegisterForm } from "./components/RegisterForm";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Flex
+        width="full"
+        pt={20}
+        align="center"
+        justifyContent="center"
+        direction={"column"}
+      >
+        <Heading>Register</Heading>
+        <Box
+          width="500px"
+          mt={10}
+          p={8}
+          borderWidth={1}
+          borderRadius={8}
+          boxShadow="md"
         >
-          Learn React
-        </a>
-      </header>
+          <RegisterForm />
+        </Box>
+      </Flex>
     </div>
   );
 }
