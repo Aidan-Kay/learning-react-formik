@@ -31,60 +31,54 @@ const validationSchema = yup.object({
   country: yup.string().required("Country is required"),
 });
 
-function ChakraInput({ name, label, inputProps, ...rest }) {
-  return (
-    <Field name={name}>
-      {({ field, form }) => (
-        <FormControl
-          isInvalid={form.errors[name] && form.touched[name]}
-          {...rest}
-        >
-          <FormLabel htmlFor={name}>{label}</FormLabel>
-          <Input id={name} {...field} {...inputProps} />
-          <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
-        </FormControl>
-      )}
-    </Field>
-  );
-}
+const ChakraInput = ({ name, label, inputProps, ...rest }) => (
+  <Field name={name}>
+    {({ field, form }) => (
+      <FormControl
+        isInvalid={form.errors[name] && form.touched[name]}
+        {...rest}
+      >
+        <FormLabel htmlFor={name}>{label}</FormLabel>
+        <Input id={name} {...field} {...inputProps} />
+        <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
+      </FormControl>
+    )}
+  </Field>
+);
 
-function ChakraSelect({ name, label, selectProps, ...rest }) {
-  return (
-    <Field name={name}>
-      {({ field, form }) => (
-        <FormControl
-          isInvalid={form.errors[name] && form.touched[name]}
-          {...rest}
-        >
-          <FormLabel htmlFor={name}>{label}</FormLabel>
-          <Select id={name} {...field} {...selectProps}>
-            <option value="UK">United Kingdom</option>
-            <option value="US">United States</option>
-          </Select>
-          <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
-        </FormControl>
-      )}
-    </Field>
-  );
-}
+const ChakraSelect = ({ name, label, selectProps, ...rest }) => (
+  <Field name={name}>
+    {({ field, form }) => (
+      <FormControl
+        isInvalid={form.errors[name] && form.touched[name]}
+        {...rest}
+      >
+        <FormLabel htmlFor={name}>{label}</FormLabel>
+        <Select id={name} {...field} {...selectProps}>
+          <option value="UK">United Kingdom</option>
+          <option value="US">United States</option>
+        </Select>
+        <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
+      </FormControl>
+    )}
+  </Field>
+);
 
-function ChakraCheckbox({ name, label, checkboxProps, ...rest }) {
-  return (
-    <Field name={name}>
-      {({ field, form }) => (
-        <FormControl
-          isInvalid={form.errors[name] && form.touched[name]}
-          {...rest}
-        >
-          <Checkbox id={name} {...field} {...checkboxProps}>
-            {label}
-          </Checkbox>
-          <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
-        </FormControl>
-      )}
-    </Field>
-  );
-}
+const ChakraCheckbox = ({ name, label, checkboxProps, ...rest }) => (
+  <Field name={name}>
+    {({ field, form }) => (
+      <FormControl
+        isInvalid={form.errors[name] && form.touched[name]}
+        {...rest}
+      >
+        <Checkbox id={name} {...field} {...checkboxProps}>
+          {label}
+        </Checkbox>
+        <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
+      </FormControl>
+    )}
+  </Field>
+);
 
 export class RegisterForm extends React.Component {
   render() {
