@@ -46,7 +46,7 @@ const ChakraInput = ({ name, label, inputProps, ...rest }) => (
   </Field>
 );
 
-const ChakraSelect = ({ name, label, selectProps, ...rest }) => (
+const ChakraSelect = ({ name, label, selectProps, selectOptions, ...rest }) => (
   <Field name={name}>
     {({ field, form }) => (
       <FormControl
@@ -55,8 +55,9 @@ const ChakraSelect = ({ name, label, selectProps, ...rest }) => (
       >
         <FormLabel htmlFor={name}>{label}</FormLabel>
         <Select id={name} {...field} {...selectProps}>
-          <option value="UK">United Kingdom</option>
-          <option value="US">United States</option>
+          {selectOptions.map((o) => (
+            <option value={o.value}>{o.text}</option>
+          ))}
         </Select>
         <FormErrorMessage>{form.errors[name]}</FormErrorMessage>
       </FormControl>
@@ -138,6 +139,10 @@ export class RegisterForm extends React.Component {
                       mt={5}
                       isRequired
                       selectProps={{ placeholder: "Select country" }}
+                      selectOptions={[
+                        { value: "UK", text: "United Kingdom" },
+                        { value: "US", text: "United States" },
+                      ]}
                     />
                     <ChakraCheckbox
                       name="newsletterSignUp"
